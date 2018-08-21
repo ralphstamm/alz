@@ -1,0 +1,49 @@
+<style>
+  #userlike-tab {
+    background-color: #3DA556 !important;
+  }
+</style>
+
+<script>
+
+  mboxDefine('nada', 'pink-chat-button')
+
+  $(document).ready(function () {
+    (function render() {
+
+      function waitUntilChatButton(delay, timeout) {
+        // if chat button exists, attach click handler
+        if ($('#userlike-tab').length>0) {
+          $('#userlike-tab').click(function () {
+            //console.log("one")
+            mboxUpdate('pink-chat-button', 'pink-chat-button')
+          })
+          return;
+        }
+
+        var timeoutPointer;
+        var intervalPointer = setInterval(function () {
+          // if chatButton is not available we have to check again after the delay
+          if ($('#userlike-tab').length===0) {
+            return;
+          }
+
+          // if chatButton is available we can execute it and clear the Interval
+          clearInterval(intervalPointer);
+          if (timeoutPointer) clearTimeout(timeoutPointer);
+          $('#userlike-tab').click(function () {
+            //console.log("two")
+            mboxUpdate('pink-chat-button', 'pink-chat-button')
+          })
+        }, delay);
+        // if after timeout milliseconds function doesn't return true, abort
+        if (timeout) timeoutPointer = setTimeout(function () {
+          clearInterval(intervalPointer);
+        }, timeout);
+      }
+
+      waitUntilChatButton(100, 5000)
+
+    }())
+  })
+</script>
