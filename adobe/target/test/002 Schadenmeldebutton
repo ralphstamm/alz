@@ -1,0 +1,11 @@
+<style>
+  #owid\:b4-15a9484dfd4 .inner,
+    #owid\:b4-15a9484dfd4 .notepad-inner
+    {
+    background-color: #E21963 !important;
+  }
+  
+  #owid\:b4-15a9484dfd4 .block-notepad-component.size-medium .notepad-inner::before{
+    border-width: 0 !important;
+  }
+</style>
