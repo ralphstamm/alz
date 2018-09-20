@@ -1,0 +1,96 @@
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 600; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 2.5%; /*20px*/
+    border: 1px solid #888;
+    width: 70%;
+    max-width: 800px;
+}
+
+/* Modal Text */
+.modal-text {
+    padding: 3.75%/*30px;*/
+}  
+  
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+
+<script>
+
+var modalW = document.createElement("div");
+modalW.setAttribute("id", "myModal");
+modalW.setAttribute("class", "modal");
+
+var modalContent = document.createElement("div");
+modalContent.setAttribute("class", "modal-content");
+
+var modalClose = document.createElement("span");
+modalClose.setAttribute("class", "close");
+modalClose.innerHTML = "&times;";
+
+var modalText = document.createElement("div");
+modalText.setAttribute("class", "modal-text");
+modalText.innerHTML = '<h1 class="title typo-l-light">DAS wird zu CAP</h1><p>Willkommen bei der Rechtsschutz-Versicherung der Allianz</p><p>Die DAS Rechtsschutz-Versicherung wurde im April 2018 von der Allianz Suisse übernommen und per 1. Oktober 2018 in die CAP Rechtsschutz-Versicherung fusioniert.</p><p>Für Sie bleibt alles beim Alten. Ihr Versicherungsschutz bleibt unverändert bestehen. Laufende Rechtsfälle werden von der bisherigen Ansprechperson weiter bearbeitet. Neue Rechtsfälle können Sie auf dem gewohnten Weg melden.</p><p>Und falls Sie noch Fragen zu der Fusion haben, finden Sie alle Antworten in unseren FAQs.</p><div id="ttid:29-155c99bbdd7" class="block block-button component block-button-component"> <a href="" onclick="modal.style.display=\'none;\'" class="button primary goto" target="_blank" rel="noopener"><span class="icon"></span>Weiter zur CAP Website</a> </div>';
+
+modalContent.appendChild(modalClose);
+modalContent.appendChild(modalText);
+
+modalW.appendChild(modalContent);
+
+document.body.appendChild(modalW);
+
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+modal.style.display = "block";
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
